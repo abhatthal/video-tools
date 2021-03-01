@@ -11,6 +11,7 @@ Concatenates two MP4 videos into one.
 ### Sources:
  * https://stackoverflow.com/questions/7333232/how-to-concatenate-two-mp4-files-using-ffmpeg
  * https://superuser.com/questions/1059245/ffmpeg-join-two-mp4-files-with-ffmpeg-on-command-line
+ * https://stackoverflow.com/a/3915420/15124812
 
 ## conv.sh
 Converts MTS files to MP4 and retains date metadata.

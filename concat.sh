@@ -4,17 +4,23 @@
 exifdateformat='%Y:%m:%d %T'
 ffmpegdateformat='%FT%T'
 
+function get_fullpath {
+  fullpath=$(cd "$(dirname "$1")"; pwd -P)/$(basename "$1")
+}
+
 function concat {
   echo "concat ($1, $2) -> $1"
   # Get start time of first file
   exifcreatetime=$(exiftool -s -s -s -createdate $1)
   ffmpegcreatetime=$(date -j -f "$exifdateformat" "$exifcreatetime" +"$ffmpegdateformat")
-  # Get intermediate files for lossless concatenation
-  ffmpeg -y -hide_banner -loglevel error -i $1 -c copy -bsf:v h264_mp4toannexb -f mpegts intermediate1.ts
-  ffmpeg -y -hide_banner -loglevel error -i $2 -c copy -bsf:v h264_mp4toannexb -f mpegts intermediate2.ts
+  get_fullpath $1
+  echo "file $fullpath" > /tmp/concat.tmp
+  get_fullpath $2
+  echo "file $fullpath" >> /tmp/concat.tmp
   # Concatenate the files into first file using the start time of the first file
-  ffmpeg -y -hide_banner -loglevel error -i "concat:intermediate1.ts|intermediate2.ts" -c copy -metadata creation_time=${ffmpegcreatetime}Z $1
-  rm intermediate?.ts $2
+  ffmpeg -y -hide_banner -loglevel error -f concat -safe 0 -i /tmp/concat.tmp -c copy -metadata creation_time=${ffmpegcreatetime}Z /tmp/$1
+  rm /tmp/concat.tmp $2
+  mv /tmp/$1 $1
 }
 
 concat "$@"

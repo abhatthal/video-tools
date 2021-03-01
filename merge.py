@@ -20,7 +20,7 @@ def main() -> None:
     while (file_idx1 < len(files)-1 and file_idx2 < len(files)):
         file1 = files[file_idx1]
         file2 = files[file_idx2]
-        if timediff(file1, file2) < 30: # seconds
+        if timediff(file1, file2) < 120: # 2 minutes
             concat(file1, file2)
             file_idx2 += 1
         else:
