@@ -1,4 +1,5 @@
 #!/bin/bash
+# Concatenates two MP4 videos into one.
 
 exifdateformat='%Y:%m:%d %T'
 ffmpegdateformat='%FT%T'

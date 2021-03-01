@@ -1,4 +1,5 @@
 #!/bin/bash
+# Converts MTS files to MP4 and retains date metadata.
 
 exifdateformat='%Y:%m:%d %T%z'
 ffmpegdateformat='%FT%T'

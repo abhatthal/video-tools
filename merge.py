@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+""" Merges related MP4 videos by time difference """
 
 from typing import List
 import sys
