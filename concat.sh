@@ -17,10 +17,11 @@ function concat {
   echo "file $fullpath" > /tmp/concat.tmp
   get_fullpath $2
   echo "file $fullpath" >> /tmp/concat.tmp
+  newvideo="/tmp/$(basename $1)"
   # Concatenate the files into first file using the start time of the first file
-  ffmpeg -y -hide_banner -loglevel error -f concat -safe 0 -i /tmp/concat.tmp -c copy -metadata creation_time=${ffmpegcreatetime}Z /tmp/$1
+  ffmpeg -y -hide_banner -loglevel error -f concat -safe 0 -i /tmp/concat.tmp -c copy -metadata creation_time=${ffmpegcreatetime}Z $newvideo
   rm /tmp/concat.tmp $2
-  mv /tmp/$1 $1
+  mv $newvideo $1
 }
 
 concat "$@"
