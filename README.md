@@ -1,6 +1,8 @@
 # Sony Camera
 
-Tools used to transfer videos from an old Sony Camera (AVCHD format)
+Collection of tools to help extract and manage videos from my Sony HDR-SR10.
+
+Navigate to `AVCHD/BDMV/STREAM` to access MTS files.
 
 ## concat.sh
 Concatenates two MP4 videos into one.
