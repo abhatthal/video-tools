@@ -16,7 +16,7 @@ function timediff {
   endtime=$(expr $date1 + $duration)
   # Get difference between end time of first file
   # and start time of second file
-  printf $(expr $date2 - $endtime)
+  printf -- "$(expr $date2 - $endtime)"
 }
 
 timediff "$@"
