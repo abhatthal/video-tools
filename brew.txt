@@ -1,0 +1,4 @@
+exiftool
+ffmpeg
+gnu-sed
+python3
