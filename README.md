@@ -18,7 +18,7 @@ I suggest manually reviewing these files before deleting them:
 ## concat.sh
 Concatenates two MP4 videos into one.
 ### Usage:
-```$ ./merge.py input1.mp4 input2.mp4```
+```$ ./concat.sh input1.mp4 input2.mp4```
 ### Sources:
  * https://stackoverflow.com/questions/7333232/how-to-concatenate-two-mp4-files-using-ffmpeg
  * https://superuser.com/questions/1059245/ffmpeg-join-two-mp4-files-with-ffmpeg-on-command-line
@@ -34,7 +34,7 @@ Converts MTS files to MP4 and retains date metadata.
 ## duration.py
 Calculates the total duration of given videos
 ### Usage:
-```$ ./timediff.sh *.mp4```
+```$ ./duration.py *.mp4```
 
 ## find_short.py
 Lists all very short videos
