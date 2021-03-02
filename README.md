@@ -2,7 +2,18 @@
 
 Collection of tools to help extract and manage videos from my Sony HDR-SR10.
 
-Navigate to `AVCHD/BDMV/STREAM` to access MTS files.
+## Workflow
+* Use USB Connect to get videos off camera
+* Navigate to `AVCHD/BDMV/STREAM` to access MTS files.
+* `conv.sh` on all MTS files to get MP4 files.
+
+(WARNING: Don't delete MTS files without verifying that MP4 files are not corrupted)
+* `merge.py` on newly generated MP4 files to merge videos taken closely together
+* `find_short.py` on these MP4 files to find remaining files that are really small.
+
+I suggest manually reviewing these files before deleting them:
+
+```$ rm $(./find_short.py *.mp4)```
 
 ## concat.sh
 Concatenates two MP4 videos into one.
@@ -24,6 +35,11 @@ Converts MTS files to MP4 and retains date metadata.
 Calculates the total duration of given videos
 ### Usage:
 ```$ ./timediff.sh *.mp4```
+
+## find_short.py
+Lists all very short videos
+### Usage:
+```$ ./find_short.py *.mp4```
 
 ## merge.py
 Merges related MP4 videos by time difference
