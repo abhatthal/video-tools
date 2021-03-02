@@ -1,59 +1,70 @@
-# Sony Camera
+# Video Tools
 
-Collection of tools to help extract and manage videos from my Sony HDR-SR10.
+Collection of tools to help extract and merge video clips from Sony AVCHD camcorders.
+
+## Dependencies
+You must be on macOS or Linux.
+
+Install [Homebrew](https://brew.sh) or use another package manager.
+
+```$ xargs brew install < brew.txt```
 
 ## Workflow
-* Use USB Connect to get videos off camera
-* Navigate to `AVCHD/BDMV/STREAM` to access MTS files.
-* `conv.sh` on all MTS files to get MP4 files.
+The following workflow works for my HDR-SR10 using macOS 11.2.2
+1. Use USB Connect to get videos off camera
+2. Navigate to `AVCHD/BDMV/STREAM` to access MTS files.
+3. `conv.sh` on all MTS files to get MP4 files.
 
 (WARNING: Don't delete MTS files without verifying that MP4 files are not corrupted)
-* `merge.py` on newly generated MP4 files to merge videos taken closely together
-* `find_short.py` on these MP4 files to find remaining files that are really small.
+
+4. `merge.py` on newly generated MP4 files to merge videos taken closely together
+5. `find_short.py` on these MP4 files to find remaining files that are really small.
 
 I suggest manually reviewing these files before deleting them:
 
 ```$ rm $(./find_short.py 5 *.mp4)```
 
-## concat.sh
+## Documentation
+
+### concat.sh
 Concatenates two MP4 videos into one.
-### Usage:
+#### Usage:
 ```$ ./concat.sh input1.mp4 input2.mp4```
-### Sources:
+#### Sources:
  * https://stackoverflow.com/questions/7333232/how-to-concatenate-two-mp4-files-using-ffmpeg
  * https://superuser.com/questions/1059245/ffmpeg-join-two-mp4-files-with-ffmpeg-on-command-line
  * https://stackoverflow.com/a/3915420/15124812
 
-## conv.sh
+### conv.sh
 Converts MTS files to MP4 and retains date metadata.
-### Usage:
+#### Usage:
 ```$ ./conv.sh *.MTS```
-### Sources:
+#### Sources:
  * https://gist.github.com/wheel5up/86ee1b4fde5f3720777e89ca4873b890
 
-## duration.py
+### duration.py
 Calculates the total duration of given videos
-### Usage:
+#### Usage:
 ```$ ./duration.py *.mp4```
 
-## find_short.py
+### find_short.py
 Lists all very short videos
-### Usage:
+#### Usage:
 Find videos under 5 seconds in length.
 
 ```$ ./find_short.py 5 *.mp4```
 
-## merge.py
+### merge.py
 Merges related MP4 videos by time difference
-### Usage:
+#### Usage:
 ```$ ./merge.py *.mp4```
 
-## timediff.sh
+### timediff.sh
 Gets the difference in time between two MP4s
 (end of first and start of second)
-### Usage:
+#### Usage:
 ```$ ./timediff.sh input1.mp4 input2.mp4```
-### Sources:
+#### Sources:
  * https://stackoverflow.com/a/29019048/15124812
  * https://unix.stackexchange.com/a/170973
  * https://unix.stackexchange.com/a/89748
