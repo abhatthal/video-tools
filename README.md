@@ -13,7 +13,7 @@ Collection of tools to help extract and manage videos from my Sony HDR-SR10.
 
 I suggest manually reviewing these files before deleting them:
 
-```$ rm $(./find_short.py *.mp4)```
+```$ rm $(./find_short.py 5 *.mp4)```
 
 ## concat.sh
 Concatenates two MP4 videos into one.
