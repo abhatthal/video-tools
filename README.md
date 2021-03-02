@@ -39,7 +39,9 @@ Calculates the total duration of given videos
 ## find_short.py
 Lists all very short videos
 ### Usage:
-```$ ./find_short.py *.mp4```
+Find videos under 5 seconds in length.
+
+```$ ./find_short.py 5 *.mp4```
 
 ## merge.py
 Merges related MP4 videos by time difference

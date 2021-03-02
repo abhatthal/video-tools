@@ -7,8 +7,9 @@ import sys
 from duration import get_duration
 
 def main() -> None:
-    files = sys.argv[1:]
-    print(*list(filter(lambda file: get_duration(file) < 5, files)), sep='\n')
+    seconds = int(sys.argv[1])
+    files = sys.argv[2:]
+    print(*list(filter(lambda file: get_duration(file) < seconds, files)), sep='\n')
 
 if __name__ == '__main__':
     main()
