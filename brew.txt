@@ -1,4 +1,5 @@
 exiftool
 ffmpeg
+fdk-aac-encoder
 gnu-sed
 python3
